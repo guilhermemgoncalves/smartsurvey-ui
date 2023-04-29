@@ -1,0 +1,43 @@
+<div class="container-xxl">
+  <p class="fs-2 text-center">Formulário de feedback</p>
+</div>
+<div class="container-sm  form-container">
+  <div id="apelido">
+    <p class="fs-4">
+      Apelido
+    </p>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    </div>
+  </div>
+  <div id="assunto">
+    <p class="fs-4">
+      Assunto
+    </p>
+    <div>
+      <select class="form-select" id="category" (change)="getCategory($event)"
+              aria-label="Floating label select example">
+        <option *ngFor="let category of categories" [value]="category"> {{category}}</option>
+      </select>
+    </div>
+  </div>
+  <div id="comentario">
+    <p class="fs-4">
+      Comentario
+    </p>
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px"></textarea>
+      <label for="floatingTextarea2">Comments</label>
+    </div>
+  </div>
+  <div id="avaliacao">
+    <span class="fs-4">
+      Avaliação:
+    </span>
+    <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+  </div>
+  <div>
+    <button type="button" (click)="Chama()" class="btn btn-outline-success">Enviar avaliação</button>
+  </div>
+</div>

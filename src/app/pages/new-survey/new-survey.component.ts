@@ -3,13 +3,14 @@ import {SurveyService} from "../../service/survey.service";
 import {lastValueFrom} from "rxjs";
 import {CreateSurvey} from "../../models/create-sruvey";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-survey',
   templateUrl: './new-survey.component.html',
   styleUrls: ['./new-survey.component.css']
 })
-export class NewSurveyComponent implements OnInit{
+export class NewSurveyComponent implements OnInit {
 
   categories: string[] = ['Futebol', 'Mercado de trabalho', 'Musica', 'Polícita', 'Mercado de trabalho', 'Produtos', 'Serviços']
   formSurvey!: FormGroup;
@@ -19,9 +20,14 @@ export class NewSurveyComponent implements OnInit{
   selectedCategory: string = this.categories[0];
   surveyMessage: string = '';
 
-  constructor(private surveyService: SurveyService, private formBuilder :FormBuilder) {
+  constructor(
+    private surveyService: SurveyService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
 
   }
+
   ngOnInit(): void {
     this.createSurveyForm(new CreateSurvey())
   }
@@ -37,6 +43,9 @@ export class NewSurveyComponent implements OnInit{
     console.log(this.formSurvey)
     let surveyResult = await lastValueFrom(this.surveyService.createSurvey(this.formSurvey.value))
     console.log(surveyResult)
+
+    this.router.navigate(['view',surveyResult])
+
   }
 
 

@@ -7,7 +7,8 @@ import {ViewSurveyComponent} from "./pages/view-survey/view-survey.component";
 const routes: Routes = [
   {path: "", component: NewSurveyComponent},
   {path: "new", component: NewSurveyComponent},
-  {path: "view", component: ViewSurveyComponent}
+  {path: "view", component: ViewSurveyComponent},
+  {path: "view/:id", component: ViewSurveyComponent}
 ]
 
 @NgModule({

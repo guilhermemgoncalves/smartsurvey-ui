@@ -11,6 +11,8 @@ import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RatingModule} from "ngx-bootstrap/rating";
 import {HttpClientModule} from "@angular/common/http";
+import { PieChartComponent } from './component/pie-chart/pie-chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 
@@ -19,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     ViewSurveyComponent,
     NewSurveyComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     RatingModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

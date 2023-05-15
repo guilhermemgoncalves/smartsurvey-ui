@@ -40,9 +40,11 @@ export class NewSurveyComponent implements OnInit {
 
   async sendSurvey() {
 
-    console.log(this.formSurvey)
-    let surveyResult = await lastValueFrom(this.surveyService.createSurvey(this.formSurvey.value))
-    console.log(surveyResult)
+    // console.log(this.formSurvey)
+    // let surveyResult = await lastValueFrom(this.surveyService.createSurvey(this.formSurvey.value))
+    // console.log(surveyResult)
+
+    let surveyResult = 24;
 
     this.router.navigate(['view',surveyResult])
 

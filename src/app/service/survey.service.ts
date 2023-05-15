@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CreateSurvey} from "../models/create-sruvey";
+import {Survey} from "../models/survey";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class SurveyService {
 
   createSurvey(createSurvey:CreateSurvey): Observable<any>{
     return this.http.post<Observable<CreateSurvey>>(this.url, createSurvey)
+  }
+
+  getSurveyById(surveyId: number): Observable<Survey> {
+    return this.http.get<Survey>(`${this.url}/${surveyId}`)
   }
 }
